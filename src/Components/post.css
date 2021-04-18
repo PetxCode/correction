@@ -1,0 +1,30 @@
+.general {
+  width: 30%;
+
+  border: 1px solid silver;
+  /* border-bottom: 1px solid silver; */
+  background-color: white;
+  margin-top: 10px;
+}
+@media screen and (max-width: 960px) {
+  .general {
+    width: 99%;
+  }
+}
+
+.imma {
+  height: 250px;
+  width: 90%;
+  background-color: silver;
+  margin-left: 60px;
+  margin-top: 10px;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+@media screen and (max-width: 760px) {
+  .imma {
+    width: 90%;
+    height: 150px;
+  }
+}
