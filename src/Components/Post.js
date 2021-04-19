@@ -14,11 +14,14 @@ import {
 import CommentModal from "./CommentModal";
 import UserImage from "./UserImage/UserImage";
 import { Link } from "react-router-dom";
+import CommentFewEntry from "./CommentFewEntry";
+import ViewMoreComment from "./ViewMoreComment";
 
 const posting = app.firestore().collection("FacebookPost");
 
 function Post() {
   const [backData, setBackData] = useState([]);
+  const [needData, setNeedData] = useState([]);
   // const { currentData, current } = useContext(GlobalContext);
 
   const gettingData = async () => {
@@ -85,7 +88,11 @@ function Post() {
               {text}
             </div>
 
-            <img className="imma" src={uploadData} style={{}} />
+            <img
+              className="imma"
+              src={uploadData}
+              style={{ backgroundColor: "red" }}
+            />
             <div
               style={{
                 // flexDirection: "row",
@@ -105,6 +112,16 @@ function Post() {
 
               <CommentModal id={id} postedBy={postedBy} />
             </div>
+            <div
+              style={{
+                flexDirection: "column",
+                display: "flex",
+                marginTop: 30,
+              }}
+            >
+              <CommentFewEntry id={id} />
+            </div>
+            <ViewMoreComment id={id} postedBy={postedBy} />
           </div>
         </div>
       ))}

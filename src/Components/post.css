@@ -1,20 +1,24 @@
 .general {
-  width: 30%;
-
+  /* width: 30%; */
+  border-radius: 5;
   border: 1px solid silver;
-  /* border-bottom: 1px solid silver; */
-  background-color: white;
   margin-top: 10px;
+  justify-content: center;
+  align-items: center;
+
+  margin: 5;
 }
 @media screen and (max-width: 960px) {
   .general {
-    width: 99%;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5;
   }
 }
 
 .imma {
-  height: 250px;
-  width: 90%;
+  height: 200px;
+  width: 300px;
   background-color: silver;
   margin-left: 60px;
   margin-top: 10px;
@@ -24,7 +28,7 @@
 
 @media screen and (max-width: 760px) {
   .imma {
-    width: 90%;
-    height: 150px;
+    width: 300px;
+    height: 200px;
   }
 }

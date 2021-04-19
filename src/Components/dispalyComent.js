@@ -60,6 +60,7 @@ function DisplayComent({ id, poster, com, timer, createdAt }) {
               display: "flex",
               marginLeft: "12px",
               fontSize: "12px",
+              fontWeight: "bold",
             }}
           >
             {getUserData && getUserData.name}
@@ -68,7 +69,7 @@ function DisplayComent({ id, poster, com, timer, createdAt }) {
           <div
             style={{
               marginLeft: "12px",
-              fontWeight: "bold",
+
               width: "90%",
             }}
           >

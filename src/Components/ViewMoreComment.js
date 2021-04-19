@@ -20,7 +20,6 @@ import {
   ShareAltOutlined,
 } from "@ant-design/icons";
 import DisplayComent from "../Components/dispalyComent";
-import ImageDisplay from "./ImageDisplay";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -52,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
 const posting = app.firestore().collection("FacebookPost");
 const db = app.firestore().collection("facebook");
 
-function CommentModal({ id, postedBy }) {
+function ViewMoreComment({ id, postedBy }) {
   const classes = useStyles();
   // const { id } = useParams();
 
@@ -141,23 +140,7 @@ function CommentModal({ id, postedBy }) {
     }
   };
 
-  const [avatarPix, setAvatarPix] = useState("");
-
-  const getAvatarPix = async () => {
-    const newUser = await app.auth().currentUser;
-
-    if (newUser) {
-      await db
-        .doc(postedBy)
-        .get()
-        .then((doc) => {
-          setAvatarPix(doc.data());
-        });
-    }
-  };
-
   useEffect(() => {
-    getAvatarPix();
     getPacked();
     getPack();
     getComment();
@@ -174,8 +157,17 @@ function CommentModal({ id, postedBy }) {
             alignItems: "center",
           }}
         >
-          <MessageOutlined onClick={handleOpen} style={{ fontSize: 17 }} />
-          <div style={{ fontSize: 10, marginLeft: 5 }}>{needData.length}</div>
+          <div
+            style={{
+              fontSize: 10,
+              cursor: "pointer",
+              marginLeft: 50,
+              color: "#6f6f70",
+            }}
+            onClick={handleOpen}
+          >
+            View All Comments
+          </div>
         </div>
       </div>
 
@@ -253,7 +245,7 @@ function CommentModal({ id, postedBy }) {
                 }}
               >
                 <img
-                  src={avatarPix && avatarPix.avatar}
+                  src={naming && naming.avatar}
                   style={{
                     height: 40,
                     width: 40,
@@ -262,7 +254,6 @@ function CommentModal({ id, postedBy }) {
                     objectFit: "cover",
                   }}
                 />
-
                 <input
                   value={com}
                   onChange={(e) => {
@@ -300,4 +291,4 @@ function CommentModal({ id, postedBy }) {
   );
 }
 
-export default CommentModal;
+export default ViewMoreComment;
